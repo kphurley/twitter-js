@@ -57,3 +57,24 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+li.tweet {
+    height: 80px;
+    list-style-type: none;
+}
+
+.placeholder {
+    float: left;
+    height: 48px;
+    width: 48px;
+    margin: 0 10px 10px 10px;
+}
+
+.tweet-name {
+    font-weight: bold;
+    
+}
+
+.tweet-content {
+    
+}
