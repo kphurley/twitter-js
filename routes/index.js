@@ -45,10 +45,11 @@ module.exports = function (io) {
     router.post('/tweets', urlencodedParser, function (req, res) {
         var name = req.body.name;
         var text = req.body.text;
-        tweetBank.add(name, text);
+        var img_url = req.body.img_url;
+        tweetBank.add(name, text, img_url);
         var tweet = tweetBank.find({name: name, content: text});
         console.log(tweet);
-        io.sockets.emit('newTweet', {name: tweet[0].name, content: tweet[0].content, id: tweet[0].id});
+        io.sockets.emit('newTweet', tweet[0]);
         res.redirect('/');
     });
     return router;

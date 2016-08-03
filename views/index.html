@@ -20,6 +20,9 @@
 
             <label for="text_field">Text:</label>
             <input name="text" type="text" id="text_field" style="width: 350px;" />
+            <br>
+            <label for="img_url_field">Image:</label>
+            <input name="img_url" type="text" id="img_url_field" style="width: 350px;" />
 
             <input type="submit" value="Submit" />
           </form>
@@ -29,7 +32,7 @@
       <!-- display tweets here -->
       <ul id="tweetList">
       {% for tweet in tweets %}
-        <li class="tweet"><img class="placeholder" src='/images/placeholder.png'><div class="tweet-name"><a href="/users/{{tweet.name}}">{{tweet.name}}</a></div><div class = "tweet-content"><a href="/users/{{tweet.id}}">{{tweet.content}}</a></div><div><a href=''>Re-tweet</a></div></li>
+        <li class="tweet"><img class="placeholder" src={{tweet.image}}><div class="tweet-name"><a href="/users/{{tweet.name}}">{{tweet.name}}</a></div><div class = "tweet-content"><a href="/users/{{tweet.id}}">{{tweet.content}}</a></div><div><a href=''>Re-tweet</a></div></li>
       {% endfor %}
       </ul>
       
