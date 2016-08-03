@@ -42,6 +42,18 @@ module.exports = function (io) {
             });
         }
     });
+    
+    router.get('/retweet/:id', function (req, res) {
+        var id = req.params.id;
+        var tweet = tweetBank.find({id: parseInt(id)});
+        var content = '@' + tweet[0].name + ': ' + tweet[0].content;
+        res.render('index', {
+            tweets: tweetBank.list(),
+            showForm: true,
+            retweet: content
+        });
+    });
+    
     router.post('/tweets', urlencodedParser, function (req, res) {
         var name = req.body.name;
         var text = req.body.text;
